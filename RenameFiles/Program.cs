@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Reflection;
 
 namespace RenameFiles
@@ -41,17 +40,17 @@ namespace RenameFiles
       {
         string argumentKey = string.Empty;
         string argumentValue = string.Empty;
-        if (argument.IndexOf(':') != -1)
+        if (argument.IndexOf('=') != -1)
         {
-          argumentKey = argument.Substring(1, argument.IndexOf(':') - 1).ToLower();
-          argumentValue = argument.Substring(argument.IndexOf(':') + 1,
-            argument.Length - (argument.IndexOf(':') + 1));
+          argumentKey = argument.Substring(1, argument.IndexOf('=') - 1).ToLower();
+          argumentValue = argument.Substring(argument.IndexOf('=') + 1,
+            argument.Length - (argument.IndexOf('=') + 1));
         }
         else
         {
-          // If we have an argument without the colon sign (:) then we add it to the dictionary
+          // If we have an argument without the equal sign (=) then we add it to the dictionary
           argumentKey = argument;
-          argumentValue = "The argument passed in does not have any value. The colon sign (:) is missing.";
+          argumentValue = "The argument passed in does not have any value. The equal sign (=) is missing.";
         }
 
         if (argumentDictionary.ContainsKey(argumentKey))
@@ -205,7 +204,7 @@ namespace RenameFiles
     {
       string result = filename;
       // We remove all characters which are forbidden for a Windows path
-      string[] forbiddenWindowsFilenameCharacters = { "\\", "/", ":", "*", "?", "\"", "<", ">", "|" };
+      string[] forbiddenWindowsFilenameCharacters = { "\\", "/", "*", "?", "\"", "<", ">", "|" };
       foreach (var item in forbiddenWindowsFilenameCharacters)
       {
         result = result.Replace(item, string.Empty);
@@ -265,15 +264,15 @@ namespace RenameFiles
         "You can write argument name (not its value) in uppercase or lowercase or a mixed of them (case insensitive)");
       display("/oldextension is the same as /OldExtension or /oldExtension or /OLDEXTENSION");
       display(string.Empty);
-      display("/directory:<name of the directory where files to be renamed are> default is where RenameFiles.exe is");
-      display("/includesubdirectories:<true or false> false by default");
-      display("/oldextension:<name of the old extension you want to rename from>");
-      display("/newextension:<name of the new extension you want to rename to>");
-      display("/log:<true or false> false by default");
+      display("/directory=<name of the directory where files to be renamed are> default is where RenameFiles.exe is");
+      display("/includesubdirectories=<true or false> false by default");
+      display("/oldextension=<name of the old extension you want to rename from>");
+      display("/newextension=<name of the new extension you want to rename to>");
+      display("/log=<true or false> false by default");
       display(string.Empty);
       display("Examples:");
       display(string.Empty);
-      display(@"RenameFiles /directory:c:\sampleDir\ /oldextension:bat /oldextension:txt /log:true");
+      display(@"RenameFiles /directory=c:\sampleDir\ /oldextension=bat /oldextension=txt /log=true");
       display(string.Empty);
       display("RenameFiles /help (this help)");
       display("RenameFiles /? (this help)");
