@@ -169,27 +169,27 @@ namespace RenameFiles
       string result = string.Empty;
       if (!removeZeroArgument || ts.Days != 0)
       {
-        result = $"{ts.Days} jour{Plural(ts.Days)} ";
+        result = $"{ts.Days} jour{Pluralize(ts.Days)} ";
       }
 
       if (!removeZeroArgument || ts.Hours != 0)
       {
-        result += $"{ts.Hours} heure{Plural(ts.Hours)} ";
+        result += $"{ts.Hours} heure{Pluralize(ts.Hours)} ";
       }
 
       if (!removeZeroArgument || ts.Minutes != 0)
       {
-        result += $"{ts.Minutes} minute{Plural(ts.Minutes)} ";
+        result += $"{ts.Minutes} minute{Pluralize(ts.Minutes)} ";
       }
 
       if (!removeZeroArgument || ts.Seconds != 0)
       {
-        result += $"{ts.Seconds} seconde{Plural(ts.Seconds)} ";
+        result += $"{ts.Seconds} seconde{Pluralize(ts.Seconds)} ";
       }
 
       if (!removeZeroArgument || ts.Milliseconds != 0)
       {
-        result += $"{ts.Milliseconds} milliseconde{Plural(ts.Milliseconds)}";
+        result += $"{ts.Milliseconds} milliseconde{Pluralize(ts.Milliseconds)}";
       }
 
       return result.TrimEnd();
@@ -218,7 +218,7 @@ namespace RenameFiles
     /// </summary>
     /// <param name="number"></param>
     /// <returns>Returns an 's' if number if greater than one ortherwise returns an empty string.</returns>
-    public static string Plural(int number)
+    public static string Pluralize(int number)
     {
       return number > 1 ? "s" : string.Empty;
     }
