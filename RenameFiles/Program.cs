@@ -103,14 +103,26 @@ namespace RenameFiles
           else if (argumentDictionary["oldextension"] == "*")
           {
             // if no old extension is a star for all files
-            File.Move(filename, ChangeFileExtension(filename, argumentDictionary["newextension"]));
-            numberOfFilesRenamed++;
+            // We don't rename the application itself andits config file.
+            if (filename.ToLower() != "renamefiles.exe" || filename.ToLower() != "renamefiles.exe.config")
+            {
+              try
+              {
+                File.Move(filename, ChangeFileExtension(filename, argumentDictionary["newextension"]));
+                numberOfFilesRenamed++;
+              }
+              catch (Exception)
+              {
+                // catch nothing and continue
+                display($"An error occured because the file: {filename} couldn't be renamed.");
+              }
+            }
           }
         }
         catch (Exception exception)
         {
           display("error while trying to rename files");
-          display($"The exception is {exception}");
+          display($"The exception is {exception.Message}");
         }
       }
     }
