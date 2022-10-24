@@ -21,6 +21,7 @@ namespace RenameFiles
         {"newextension", "txt" },
         {"log", "false"}
       };
+
       // the variable numberOfInitialDictionaryItems is used for the log to list all non-standard arguments passed in.
       int numberOfInitialDictionaryItems = argumentDictionary.Count;
       int numberOfFilesRenamed = 0;
@@ -43,8 +44,7 @@ namespace RenameFiles
         if (argument.IndexOf('=') != -1)
         {
           argumentKey = argument.Substring(1, argument.IndexOf('=') - 1).ToLower();
-          argumentValue = argument.Substring(argument.IndexOf('=') + 1,
-            argument.Length - (argument.IndexOf('=') + 1));
+          argumentValue = argument.Substring(argument.IndexOf('=') + 1, argument.Length - (argument.IndexOf('=') + 1));
         }
         else
         {
@@ -97,6 +97,12 @@ namespace RenameFiles
         {
           if (filename.EndsWith(argumentDictionary["oldextension"]))
           {
+            File.Move(filename, ChangeFileExtension(filename, argumentDictionary["newextension"]));
+            numberOfFilesRenamed++;
+          }
+          else if (argumentDictionary["oldextension"] == "*")
+          {
+            // if no old extension is a star for all files
             File.Move(filename, ChangeFileExtension(filename, argumentDictionary["newextension"]));
             numberOfFilesRenamed++;
           }
@@ -250,8 +256,8 @@ namespace RenameFiles
       display(string.Empty);
       display("RenameFiles is a console application written by Freddy Juhel.");
       display($"RenameFiles.exe is in version {GetAssemblyVersion()}");
-      display("RenameFiles needs Microsoft .NET framework 3.5 to run, if you don't have it, download it from microsoft.com.");
-      display("Copyrighted (c) MIT 2017 by Freddy Juhel.");
+      display("RenameFiles needs Microsoft .NET framework 4.8 to run, if you don't have it, download it from microsoft.com.");
+      display("Copyrighted (c) MIT 2017-2022 by Freddy Juhel.");
       display(string.Empty);
       display("Usage of this program:");
       display(string.Empty);
@@ -272,7 +278,9 @@ namespace RenameFiles
       display(string.Empty);
       display("Examples:");
       display(string.Empty);
-      display(@"RenameFiles /directory=c:\sampleDir\ /oldextension=bat /oldextension=txt /log=true");
+      display(@"RenameFiles /directory=c:\sampleDir\ /oldextension=bat /newextension=txt /log=true");
+      display(string.Empty);
+      display(@"RenameFiles /oldextension=* /newextension=jpg");
       display(string.Empty);
       display("RenameFiles /help (this help)");
       display("RenameFiles /? (this help)");
