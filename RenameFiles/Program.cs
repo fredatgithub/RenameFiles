@@ -103,7 +103,7 @@ namespace RenameFiles
           else if (argumentDictionary["oldextension"] == "*")
           {
             // if no old extension is a star for all files
-            // We don't rename the application itself andits config file.
+            // We don't rename the application itself and its config file.
             if (filename.ToLower() != "renamefiles.exe" || filename.ToLower() != "renamefiles.exe.config")
             {
               try
