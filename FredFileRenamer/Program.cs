@@ -6,17 +6,17 @@ using System.Windows.Forms;
 
 namespace FredFileRenamer
 {
-    internal static class Program
+  internal static class Program
+  {
+    /// <summary>
+    /// Point d'entrée principal de l'application.
+    /// </summary>
+    [STAThread]
+    static void Main()
     {
-        /// <summary>
-        /// Point d'entrée principal de l'application.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
-        }
+      Application.EnableVisualStyles();
+      Application.SetCompatibleTextRenderingDefault(false);
+      Application.Run(new FormMain());
     }
+  }
 }

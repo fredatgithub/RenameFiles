@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("FredFileRenamer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("e-SNCF")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("FredFileRenamer")]
-[assembly: AssemblyCopyright("Copyright © e-SNCF 2022")]
+[assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Le GUID suivant est pour l'ID de la typelib si ce projet est exposé à COM
-[assembly: Guid("d453f31e-6c10-45da-b3fe-09fd40f0e821")]
+[assembly: Guid("a4477af2-560e-44cf-9767-7a7cf9581417")]
 
 // Les informations de version pour un assembly se composent des quatre valeurs suivantes :
 //
