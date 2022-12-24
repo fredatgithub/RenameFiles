@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // Les informations générales relatives à un assembly dépendent de
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("FredFileRenamer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Fred File Renamer")]
+[assembly: AssemblyDescription("This application renames several files with a custom template instead of renaming a lot of files manually.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FredFileRenamer")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("Freddy Juhel")]
+[assembly: AssemblyProduct("Fred File Renamer")]
+[assembly: AssemblyCopyright("Copyright © MIT 2022 Freddy Juhel")]
+[assembly: AssemblyTrademark("Freddy Juhel")]
 [assembly: AssemblyCulture("")]
 
 // L'affectation de la valeur false à ComVisible rend les types invisibles dans cet assembly

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -69,6 +70,50 @@ namespace FredFileRenamer
       {
         MessageBox.Show("return has been pressed");
       }
+    }
+
+    public static List<string> GetSubfoldersAndFiles(DirectoryInfo directoryInfo, int depth)
+    {
+      List<string> result = new List<string>();
+      foreach (FileInfo fileInfo in directoryInfo.GetFiles())
+      {
+        result.Add(fileInfo.FullName);
+      }
+
+      if (depth > 0)
+      {
+        foreach (DirectoryInfo subDi in directoryInfo.GetDirectories())
+        {
+          result.AddRange(GetSubfoldersAndFiles(subDi, depth - 1).ToArray());
+        }
+      }
+
+      return result;
+    }
+
+    public static FileInfo GetFileInfo(string fileName)
+    {
+      return new FileInfo(fileName);
+    }
+
+    private void ButtonPreview_Click(object sender, EventArgs e)
+    {
+      var backupDataGridViewItems = dataGridViewPreview.Rows;
+      dataGridViewPreview.Rows.Clear();
+      // adding new extension
+
+    }
+
+    private void ButtonApply_Click(object sender, EventArgs e)
+    {
+      // apply the preview
+
+    }
+
+    private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      AboutBoxApp aboutBox = new AboutBoxApp();
+      aboutBox.ShowDialog();
     }
   }
 }
