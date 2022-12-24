@@ -65,8 +65,11 @@
       this.ColumnFileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.buttonPreview = new System.Windows.Forms.Button();
       this.buttonApply = new System.Windows.Forms.Button();
+      this.tabPageOptions = new System.Windows.Forms.TabPage();
+      this.tabControlCustomisation = new System.Windows.Forms.TabControl();
       this.menuStrip1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPreview)).BeginInit();
+      this.tabControlCustomisation.SuspendLayout();
       this.SuspendLayout();
       // 
       // menuStrip1
@@ -370,11 +373,31 @@
       this.buttonApply.Text = "Apply";
       this.buttonApply.UseVisualStyleBackColor = true;
       // 
+      // tabPageOptions
+      // 
+      this.tabPageOptions.Location = new System.Drawing.Point(4, 29);
+      this.tabPageOptions.Name = "tabPageOptions";
+      this.tabPageOptions.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPageOptions.Size = new System.Drawing.Size(900, 110);
+      this.tabPageOptions.TabIndex = 0;
+      this.tabPageOptions.Text = "Options";
+      this.tabPageOptions.UseVisualStyleBackColor = true;
+      // 
+      // tabControlCustomisation
+      // 
+      this.tabControlCustomisation.Controls.Add(this.tabPageOptions);
+      this.tabControlCustomisation.Location = new System.Drawing.Point(25, 428);
+      this.tabControlCustomisation.Name = "tabControlCustomisation";
+      this.tabControlCustomisation.SelectedIndex = 0;
+      this.tabControlCustomisation.Size = new System.Drawing.Size(908, 143);
+      this.tabControlCustomisation.TabIndex = 6;
+      // 
       // FormMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(1200, 692);
+      this.Controls.Add(this.tabControlCustomisation);
       this.Controls.Add(this.buttonApply);
       this.Controls.Add(this.buttonPreview);
       this.Controls.Add(this.dataGridViewPreview);
@@ -389,6 +412,7 @@
       this.menuStrip1.ResumeLayout(false);
       this.menuStrip1.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPreview)).EndInit();
+      this.tabControlCustomisation.ResumeLayout(false);
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -432,6 +456,8 @@
     private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFileName;
     private System.Windows.Forms.Button buttonPreview;
     private System.Windows.Forms.Button buttonApply;
+    private System.Windows.Forms.TabPage tabPageOptions;
+    private System.Windows.Forms.TabControl tabControlCustomisation;
   }
 }
 
