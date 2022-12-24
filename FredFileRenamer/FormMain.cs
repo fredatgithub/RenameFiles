@@ -21,5 +21,10 @@ namespace FredFileRenamer
     {
 
     }
+
+    private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+      Application.Exit();
+    }
   }
 }
