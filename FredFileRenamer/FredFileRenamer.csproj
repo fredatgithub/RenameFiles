@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A4477AF2-560E-44CF-9767-7A7CF9581417}</ProjectGuid>
+    <ProjectGuid>{D453F31E-6C10-45DA-B3FE-09FD40F0E821}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>FredFileRenamer</RootNamespace>
     <AssemblyName>FredFileRenamer</AssemblyName>
