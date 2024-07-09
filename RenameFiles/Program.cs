@@ -72,7 +72,7 @@ namespace RenameFiles
       // We log all arguments passed in.
       foreach (KeyValuePair<string, string> keyValuePair in argumentDictionary)
       {
-        if (argumentDictionary["log"] == "true")
+        if (argumentDictionary["log"].ToLower() == "true")
         {
           Log(datedLogFileName, argumentDictionary["log"], $"Argument requested: {keyValuePair.Key}");
           Log(datedLogFileName, argumentDictionary["log"], $"Value of the argument: {keyValuePair.Value}");
@@ -80,7 +80,7 @@ namespace RenameFiles
       }
 
       //we log extra arguments
-      if (hasExtraArguments && argumentDictionary["log"] == "true")
+      if (hasExtraArguments && argumentDictionary["log"].ToLower() == "true")
       {
         Log(datedLogFileName, argumentDictionary["log"], "Here are a list of argument passed in but not understood and thus not used (for debug purpose only).");
         for (int i = numberOfInitialDictionaryItems; i <= argumentDictionary.Count - 1; i++)
@@ -129,8 +129,7 @@ namespace RenameFiles
 
     public static string ChangeFileExtension(string filename, string newExtension)
     {
-      string result = filename;
-      result = $"{Path.GetFileNameWithoutExtension(filename)}.{newExtension}";
+      string result = $"{Path.GetFileNameWithoutExtension(filename)}.{newExtension}";
       return result;
     }
 
