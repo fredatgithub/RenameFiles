@@ -129,7 +129,16 @@ namespace RenameFiles
 
     public static string ChangeFileExtension(string filename, string newExtension)
     {
-      string result = $"{Path.GetFileNameWithoutExtension(filename)}.{newExtension}";
+      var result = string.Empty;
+      if (newExtension.Contains('.'))
+      {
+        result = $"{Path.GetFileNameWithoutExtension(filename)}{newExtension}";
+      }
+      else
+      {
+        result = $"{Path.GetFileNameWithoutExtension(filename)}.{newExtension}";
+      }
+      
       return result;
     }
 
@@ -268,7 +277,7 @@ namespace RenameFiles
       display("RenameFiles is a console application written by Freddy Juhel.");
       display($"RenameFiles.exe is in version {GetAssemblyVersion()}");
       display("RenameFiles needs Microsoft .NET framework 4.8 to run, if you don't have it, download it from microsoft.com.");
-      display("Copyrighted (c) MIT 2017-2022 by Freddy Juhel.");
+      display("Copyrighted (c) MIT 2017-2024 by Freddy Juhel.");
       display(string.Empty);
       display("Usage of this program:");
       display(string.Empty);
